@@ -35,4 +35,20 @@ public class MyStack<T> {
         }
         System.out.println(stackFormat);
     }
+
+    // UC2: Method to remove and return the top element of the stack (Pop)
+    public Node<T> pop() {
+        if (this.top == null) {
+            return null;
+        }
+        Node<T> tempNode = this.top;
+        // Shift top pointer to the next node down
+        this.top = this.top.getNext();
+        return tempNode;
+    }
+
+    // UC2: Helper method to check if the stack is completely empty
+    public boolean isEmpty() {
+        return this.top == null;
+    }
 }
