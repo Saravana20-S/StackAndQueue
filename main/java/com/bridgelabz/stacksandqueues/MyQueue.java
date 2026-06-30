@@ -40,4 +40,26 @@ public class MyQueue<T> {
         }
         System.out.println(queueFormat);
     }
+
+
+    // UC4: Method to remove and return the front element of the queue (Dequeue)
+    public Node<T> dequeue() {
+        if (this.head == null) {
+            return null;
+        }
+        Node<T> tempNode = this.head;
+        // Shift head pointer to the next node in line
+        this.head = this.head.getNext();
+
+        // If the queue becomes completely empty, set tail to null too
+        if (this.head == null) {
+            this.tail = null;
+        }
+        return tempNode;
+    }
+
+    // UC4: Helper method to check if the queue is empty
+    public boolean isEmpty() {
+        return this.head == null;
+    }
 }
